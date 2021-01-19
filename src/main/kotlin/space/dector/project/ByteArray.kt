@@ -5,4 +5,6 @@ interface ByteArray {
 
     val capacity: Int
     val size: Int
+
+    fun pushByte(b: Byte): Unit = TODO()
 }
