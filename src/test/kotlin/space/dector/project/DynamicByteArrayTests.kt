@@ -12,4 +12,20 @@ class DynamicByteArrayTests : StringSpec({
         arr.size shouldBe 0
         arr.capacity shouldBe 0
     }
+
+    "Overflow array" {
+        val arr = DynamicByteArray(3, 5)
+
+        arr.pushByte(0.toByte())
+        arr.pushByte(0.toByte())
+        arr.pushByte(0.toByte())
+
+        arr.size shouldBe 3
+        arr.capacity shouldBe 3
+
+        arr.pushByte(0.toByte())
+
+        arr.size shouldBe 4
+        arr.capacity shouldBe 8
+    }
 })
